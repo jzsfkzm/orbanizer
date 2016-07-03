@@ -1,4 +1,4 @@
-var chChChanges = {
+var config = {
   'Orbán Viktornak': [
     'Mészáros Lőrincnek',
     'Tiborcz Istvánnak',
@@ -79,19 +79,42 @@ var chChChanges = {
 };
 
 var elements = document.getElementsByTagName('*');
-Array.from(elements).forEach(function(element) {
-  element.childNodes.forEach(function(node) {
-    if (node.nodeType === 3) {
-      for (replacement in chChChanges) {
-        chChChanges[replacement].forEach(function(searchPhrase) {
-          var text = node.nodeValue;
-          var replacedText = text.replace(new RegExp(searchPhrase, 'gi'), replacement);
 
-          if (replacedText !== text) {
-           node.textContent = replacedText;
-          }
-        });
-      };
-    }
+var textNodes = Array.from(elements).reduce(function(memo, element) {
+  return memo.concat(Array.from(element.childNodes).filter(function(node) {
+    return node.nodeType === 3;
+  }));
+}, []);
+
+var textContent = textNodes.map(function(node) {
+  return node.nodeValue;
+}).join(' ');
+
+var searchPhrases = Object.keys(config).reduce(function(memo, key) {
+  return memo.concat(config[key]);
+}, []);
+
+var config = Object.keys(config).reduce(function(memo, key) {
+  var found = config[key].filter(function(searchPhrase) {
+    return new RegExp(searchPhrase, 'gi').test(textContent);
   });
+
+  if (found.length > 0) {
+    memo[key] = found;
+  }
+
+  return memo;
+}, {});
+
+textNodes.forEach(function(node) {
+  for (replacement in config) {
+    config[replacement].forEach(function(searchPhrase) {
+      var text = node.nodeValue;
+      var replacedText = text.replace(new RegExp(searchPhrase, 'gi'), replacement);
+
+      if (replacedText !== text) {
+        node.textContent = replacedText;
+      }
+    });
+  };
 });
