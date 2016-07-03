@@ -1,11 +1,4 @@
 var chChChanges = {
-  'Orbán Viktor': [
-    'Mészáros Lőrinc',
-    'Tiborcz István',
-    'Garancsi István',
-    'Andy Vajna',
-    'Flier János'
-  ],
   'Orbán Viktornak': [
     'Mészáros Lőrincnek',
     'Tiborcz Istvánnak',
@@ -75,6 +68,13 @@ var chChChanges = {
     'Garancsi Istvánon',
     'Andy Vajnán',
     'Flier Jánoson'
+  ],
+  'Orbán Viktor': [
+    'Mészáros Lőrinc',
+    'Tiborcz István',
+    'Garancsi István',
+    'Andy Vajna',
+    'Flier János'
   ]
 };
 
