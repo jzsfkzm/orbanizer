@@ -118,3 +118,113 @@ textNodes.forEach(function(node) {
     });
   };
 });
+
+
+
+/* ----------- replace images ----------- */
+
+var imgConfig = [
+  'Mészáros Lőrinc',
+  'Tiborcz István', 
+  'Garancsi István',
+  'Andy Vajna',
+  'Flier János'
+];
+
+imgConfig = imgConfig.map(s => s.toLowerCase());
+
+var imgSearchExtra = imgConfig.map(s => ekezetmentesit(s)); //ex.: meszaros lorinc
+var imgSearchExtra2 = imgSearchExtra.map(s => s.replace(' ', '_')); //ex.: meszaros_lorinc
+var imgSearchExtra3 = imgSearchExtra.map(s => s.replace(' ', '-')); //ex.: meszaros-lorinc
+
+imgConfig = imgConfig.concat(imgSearchExtra, imgSearchExtra2, imgSearchExtra3);
+
+var images = [];
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    var image = images[request.imgId];
+    image.src = request.uri;
+  }
+);
+
+
+var lastAdded = 0;
+addAll();
+
+setInterval(function(){
+  if(lastAdded + 1000 < Date.now()){
+    addAll();
+  }
+}, 5000);
+
+document.addEventListener('DOMNodeInserted', waitAndAdd);
+
+function waitAndAdd(){
+  setTimeout(function(){
+    if(lastAdded + 1000 < Date.now()){
+      addAll();
+    }
+  }, 1000);
+}
+
+function addAll(){
+  lastAdded = Date.now();
+  //console.log(Math.floor(lastAdded/1000) + ' addall ');
+  addImages(Array.from( document.querySelectorAll('img:not([data-orbanized])') ));
+}
+
+function addImages(toAdd){
+  toAdd = toAdd.filter(isMutyi);
+
+  var oldLength = images.length;
+  images = images.concat(toAdd);
+
+  for(var i = oldLength; i<oldLength+toAdd.length; i++){
+    var img = images[i];
+    chrome.runtime.sendMessage({url: img.src, imgId: i});
+  }
+
+}
+
+
+function isMutyi(img){
+  if(img.dataset.orbanized !== undefined && img.dataset.orbanized){
+    return false;
+  }
+
+  img.dataset.orbanized = true;
+
+  if(img.src.endsWith('.gif') || img.src.endsWith('.svg')){
+    return false;
+  }
+
+  var tmp = img.title.toLowerCase() +
+            img.alt.toLowerCase() +
+            img.src.toLowerCase() +
+            decodeURIComponent(img.src).toLowerCase();
+
+  var a = img;
+  while(a){
+    if(a.nodeName == 'A'){
+      tmp += a.href;
+      break;
+    }
+    a = a.parentNode;
+  }
+
+  for(var i = 0; i<imgConfig.length; i++){
+    if(tmp.includes(imgConfig[i])){
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function ekezetmentesit(srt){
+  return srt.replace(/[áéíóöőúüű]/g, function(c){
+    var map = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ö': 'o', 'ő': 'o', 'ú': 'u', 'ü': 'u', 'ű': 'u'};
+    return map[c];
+  });
+}
