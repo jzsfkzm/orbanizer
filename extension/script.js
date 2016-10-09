@@ -106,14 +106,42 @@ var config = Object.keys(config).reduce(function(memo, key) {
   return memo;
 }, {});
 
+const createSpan = (textNodes, searchPhrase, replacement) => {
+  const div = document.createElement('span');
+  textNodes.forEach((item, index) => {
+    appendTextNode(div, item);
+    if (index < textNodes.length - 1) {
+      appendStrike(div, searchPhrase, replacement);
+    }
+  });
+
+  return div;
+};
+
+const clearChildren = (parent) => {
+  parent.childNodes.forEach(childElement => parent.removeChild(childElement));
+}
+
+const appendTextNode = (parent, text) => {
+  parent.appendChild(document.createTextNode(text));
+}
+
+const appendStrike = (parent, text, replacement) => {
+  let strike = document.createElement('strike');
+  parent.appendChild(strike);
+  appendTextNode(strike, text);
+  appendTextNode(parent, ' ' + replacement);
+}
+
 textNodes.forEach(function(node) {
+  let replaced = false;
   for (replacement in config) {
     config[replacement].forEach(function(searchPhrase) {
       var text = node.nodeValue;
-      var replacedText = text.replace(new RegExp(searchPhrase, 'gi'), replacement);
-
-      if (replacedText !== text) {
-        node.textContent = replacedText;
+      var foundItems = text.split(searchPhrase);
+      if (!replaced && foundItems.length > 1) {
+        replaced = true;
+        node.parentElement.replaceChild(createSpan(foundItems, searchPhrase, replacement), node);
       }
     });
   };
