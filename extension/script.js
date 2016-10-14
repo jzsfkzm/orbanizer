@@ -34,6 +34,13 @@ var config = {
     'Andy Vajnák',
     'Flier Jánosok'
   ],
+  'Orbán Viktoréknak': [
+    'Mészáros Lőrincéknek',
+    'Tiborcz Istvánéknak',
+    'Garancsi Istvánéknak',
+    'Andy Vajnáéknak',
+    'Flier Jánoséknak'
+  ],
   'Orbán Viktorék': [
     'Mészáros Lőrincék',
     'Tiborcz Istvánék',
