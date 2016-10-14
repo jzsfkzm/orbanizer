@@ -1,4 +1,162 @@
 var config = {
+  'Orbán Viktoréknak': [
+    'Mészáros Lőrincéknek',
+    'Tiborcz Istvánéknak',
+    'Garancsi Istvánéknak',
+    'Andy Vajnáéknak',
+    'Flier Jánoséknak'
+  ],
+  'Orbán Viktorékról': [
+    'Mészáros Lőrincékről',
+    'Tiborcz Istvánékról',
+    'Garancsi Istvánékról',
+    'Andy Vajnáékról',
+    'Flier Jánosékról'
+  ],
+  'Orbán Viktorékat': [
+    'Mészáros Lőrincéket',
+    'Tiborcz Istvánékat',
+    'Garancsi Istvánékat',
+    'Andy Vajnáékat',
+    'Flier Jánosékat'
+  ],
+  'Orbán Viktorékhoz': [
+    'Mészáros Lőrincékhez',
+    'Tiborcz Istvánékhoz',
+    'Garancsi Istvánékhoz',
+    'Andy Vajnáékhoz',
+    'Flier Jánosékhoz'
+  ],
+  'Orbán Viktoréké': [
+    'Mészáros Lőrincéké',
+    'Tiborcz Istvánéké',
+    'Garancsi Istvánéké',
+    'Andy Vajnáéké',
+    'Flier Jánoséké'
+  ],
+  'Orbán Viktoréktól': [
+    'Mészáros Lőrincéktől',
+    'Tiborcz Istvánéktól',
+    'Garancsi Istvánéktól',
+    'Andy Vajnáéktól',
+    'Flier Jánoséktól'
+  ],
+  'Orbán Viktorékkal': [
+    'Mészáros Lőrincékkel',
+    'Tiborcz Istvánékkal',
+    'Garancsi Istvánékkal',
+    'Andy Vajnáékkal',
+    'Flier Jánosékkal'
+  ],
+  'Orbán Viktorékra': [
+    'Mészáros Lőrincékre',
+    'Tiborcz Istvánékra',
+    'Garancsi Istvánékra',
+    'Andy Vajnáékra',
+    'Flier Jánosékra'
+  ],
+  'Orbán Viktoréknál': [
+    'Mészáros Lőrincéknél',
+    'Tiborcz Istvánéknál',
+    'Garancsi Istvánéknál',
+    'Andy Vajnáéknál',
+    'Flier Jánoséknál'
+  ],
+  'Orbán Viktoréken': [
+    'Mészáros Lőrincéken',
+    'Tiborcz Istvánékon',
+    'Garancsi Istvánékon',
+    'Andy Vajnáékn',
+    'Flier Jánosékon'
+  ],
+  'Orbán Viktorék': [
+    'Mészáros Lőrincék',
+    'Tiborcz Istvánék',
+    'Garancsi Istvánék',
+    'Andy Vajnaék',
+    'Flier Jánosék'
+  ],
+
+
+  'Orbán Viktoroknak': [
+    'Mészáros Lőrinceknek',
+    'Tiborcz Istvánoknak',
+    'Garancsi Istvánoknak',
+    'Andy Vajnáknak',
+    'Flier Jánosoknak'
+  ],
+  'Orbán Viktorokról': [
+    'Mészáros Lőrincekről',
+    'Tiborcz Istvánokról',
+    'Garancsi Istvánokról',
+    'Andy Vajnákról',
+    'Flier Jánosokról'
+  ],
+  'Orbán Viktorokat': [
+    'Mészáros Lőrinceket',
+    'Tiborcz Istvánokat',
+    'Garancsi Istvánokat',
+    'Andy Vajnákat',
+    'Flier Jánosokat'
+  ],
+  'Orbán Viktorokhoz': [
+    'Mészáros Lőrincekhez',
+    'Tiborcz Istvánokhoz',
+    'Garancsi Istvánokhoz',
+    'Andy Vajnákhoz',
+    'Flier Jánosokhoz'
+  ],
+  'Orbán Viktoroké': [
+    'Mészáros Lőrinceké',
+    'Tiborcz Istvánoké',
+    'Garancsi Istvánoké',
+    'Andy Vajnáké',
+    'Flier Jánosoké'
+  ],
+  'Orbán Viktoroktól': [
+    'Mészáros Lőrincektől',
+    'Tiborcz Istvánoktól',
+    'Garancsi Istvánoktól',
+    'Andy Vajnáktól',
+    'Flier Jánosoktól'
+  ],
+  'Orbán Viktorokkal': [
+    'Mészáros Lőrincekkel',
+    'Tiborcz Istvánokkal',
+    'Garancsi Istvánokkal',
+    'Andy Vajnákkal',
+    'Flier Jánosokkal'
+  ],
+  'Orbán Viktorokra': [
+    'Mészáros Lőrincekre',
+    'Tiborcz Istvánokra',
+    'Garancsi Istvánokra',
+    'Andy Vajnákra',
+    'Flier Jánosokra'
+  ],
+  'Orbán Viktoroknál': [
+    'Mészáros Lőrinceknél',
+    'Tiborcz Istvánoknál',
+    'Garancsi Istvánoknál',
+    'Andy Vajnáknál',
+    'Flier Jánosoknál'
+  ],
+  'Orbán Viktorokon': [
+    'Mészáros Lőrinceken',
+    'Tiborcz Istvánokon',
+    'Garancsi Istvánokon',
+    'Andy Vajnákon',
+    'Flier Jánosokon'
+  ],
+  'Orbán Viktorok': [
+    'Mészáros Lőrincek',
+    'Tiborcz Istvánok',
+    'Garancsi Istvánok',
+    'Andy Vajnák',
+    'Flier Jánosok'
+  ],
+
+
   'Orbán Viktornak': [
     'Mészáros Lőrincnek',
     'Tiborcz Istvánnak',
@@ -26,27 +184,6 @@ var config = {
     'Garancsi Istvánhoz',
     'Andy Vajnához',
     'Flier Jánoshoz'
-  ],
-  'Orbán Viktorok': [
-    'Mészáros Lőrincek',
-    'Tiborcz Istvánok',
-    'Garancsi Istvánok',
-    'Andy Vajnák',
-    'Flier Jánosok'
-  ],
-  'Orbán Viktoréknak': [
-    'Mészáros Lőrincéknek',
-    'Tiborcz Istvánéknak',
-    'Garancsi Istvánéknak',
-    'Andy Vajnáéknak',
-    'Flier Jánoséknak'
-  ],
-  'Orbán Viktorék': [
-    'Mészáros Lőrincék',
-    'Tiborcz Istvánék',
-    'Garancsi Istvánék',
-    'Andy Vajnáék',
-    'Flier Jánosék'
   ],
   'Orbán Viktoré': [
     'Mészáros Lőrincé',
