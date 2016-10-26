@@ -9,6 +9,13 @@
     "48": "images/icons/icon48.png",
     "16": "images/icons/icon16.png"
   },
+  "background": {
+    "scripts": [
+      "third_party/jquery-3.0.0.min.js",
+      "third_party/jquery.facedetection.min.js",
+      "images.js"
+    ]
+  },
   "content_scripts": [{
     "js": [
       "script.js"
